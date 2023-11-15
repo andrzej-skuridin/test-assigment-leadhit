@@ -1,6 +1,6 @@
 {"_default": {
   "0": {"template_name": "Only email", "contact_email": "email"},
-  "1": {"template_name": "Only date", "contact_email": "email"},
+  "1": {"template_name": "Only date", "registration_date": "date"},
   "2": {"template_name": "Only text", "bio": "text"},
   "3": {"template_name": "Only telephone", "telephone_number": "telephone"},
   "4": {"template_name": "Contact data", "contact_email": "email", "telephone_number": "telephone"},
