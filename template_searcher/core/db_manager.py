@@ -1,6 +1,6 @@
-from tinydb import TinyDB, Query
-
-db_templates = TinyDB('db_templates.json')
+# from tinydb import TinyDB, Query
+#
+# db_templates = TinyDB('db_templates.json')
 
 # db_templates.insert({
 #     'name': 'T Email',

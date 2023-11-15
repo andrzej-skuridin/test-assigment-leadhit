@@ -1,6 +1,7 @@
-from django.shortcuts import render
 from rest_framework.views import APIView
 from django.http import JsonResponse, HttpResponse
+
+from core.data_processor import db_handler
 
 
 # Create your views here.
@@ -17,8 +18,9 @@ class GetFormAPIview(APIView):
 
     def post(self, request, **kwargs):
         data = self.request.data  # dict
-        pairs = list()
-        for d in data:
-            pairs.append((d, data[d]))
-            print(pairs)
-        return JsonResponse(data)
+        found_template = db_handler(data)
+        # pairs = list()
+        # for d in data:
+        #     pairs.append((d, data[d]))
+        #     print(pairs)
+        return JsonResponse({'template_name': found_template})

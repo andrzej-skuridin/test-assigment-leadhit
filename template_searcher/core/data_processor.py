@@ -2,13 +2,13 @@ import re
 from math import inf
 from tinydb import TinyDB, Query
 
-data1 = {
-    # 'name': 'Bill'
-    'registration_date': '12.12.2012'
-    # 'contact_email': 'user1@user.ru',
-    # 'my_telephone': '+79992221100',
-    # 'bio': 'I am Batman'
-}
+# data1 = {
+#     # 'name': 'Bill'
+#     # 'registration_date': '12.12.2012'
+#     # 'contact_email': 'user1@user.ru',
+#     # 'my_telephone': '+79992221100',
+#     'bio': 'I am Batman'
+# }
 
 
 def validator(expression: str) -> str:
@@ -50,7 +50,6 @@ def data_transformer(data: dict[str, str]) -> dict[str, str]:
     name_type_dict = dict()
     for nv in name_value:
         name_type_dict[nv[0]] = validator(nv[1])
-    print(name_type_dict)
     return name_type_dict
 
 
@@ -61,14 +60,14 @@ def db_handler(post_data: dict[str, str]):
     :param post_data:
     :return:
     """
-    db_templates = TinyDB('db_templates.json')
+    db_templates = TinyDB('core\db_templates.json')
+    new_data = data_transformer(data=post_data)
     matches = db_templates.search(
-        Query().fragment(data_transformer(data=post_data))
+        Query().fragment(new_data)
     )
     if len(matches) == 0:
         print('Подходящего шаблона не найдено!')
-        return print(post_data)
-        #return {post_data} #  здесь нужно понять где возвращать значение, тут или в view
+        return post_data
 
     # здесь нужно среди всех результатов выбрать тот,
     # в котором меньше всего полей,
@@ -76,13 +75,11 @@ def db_handler(post_data: dict[str, str]):
     # считаем, что наименее избыточный и есть оптимальный вариант
     fields_number = inf
     for match in matches:
+        result = match
         if len(match) < fields_number:
             result = match
             fields_number = len(match)
 
-            print(f'extra_fields: {fields_number}')
-        print(f'match: {match}')
-    return print(result['name'])
-
-
-db_handler(post_data=data1)
+            # print(f'extra_fields: {fields_number}')
+        # print(f'match: {match}')
+    return result['template_name']
