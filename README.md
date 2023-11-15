@@ -7,7 +7,7 @@
 ### Техническое задание:
 https://docs.google.com/document/d/1fMFwPBs53xzcrltEFOpEG4GWTaQ-5jvVLrNT6_hmC7I/edit?pli=1
 
-### Установка:
+### Установка (Windows OS):
 Клонировать репозиторий, находящийся по адресу:
 
 ```
@@ -18,30 +18,13 @@ https://github.com/andrzej-skuridin/test-assignment-leadhit.git
 cd template_searcher
 ```
 
-Cоздать и активировать виртуальное окружение:
-
-* Если у вас Linux/macOS
-
-Создать:
-
-```
-source env/bin/activate
-```
-Активировать:
+Создать виртуальное окружение:
 
 ```
 python -m venv venv
 ```
 
-* Если у вас windows
-
-Создать:
-
-```
-python -m venv venv
-```
-
-Активировать:
+Активировать виртуальное окружение:
 
 ```
 source venv/scripts/activate
