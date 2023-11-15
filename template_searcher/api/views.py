@@ -22,5 +22,3 @@ class GetFormAPIview(APIView):
         data = self.request.data
         found_template = db_handler(data)
         return found_template
-
-        # return JsonResponse(found_template)

@@ -1,5 +1,8 @@
+import http
 import re
 from math import inf
+
+from rest_framework.response import Response
 from tinydb import TinyDB, Query
 
 # data1 = {
@@ -66,8 +69,7 @@ def db_handler(post_data: dict[str, str]):
         Query().fragment(new_data)
     )
     if len(matches) == 0:
-        print('Подходящего шаблона не найдено!')
-        return post_data
+        return Response(data=post_data, status=http.HTTPStatus.NOT_FOUND)
 
     # здесь нужно среди всех результатов выбрать тот,
     # в котором меньше всего полей,
@@ -79,4 +81,4 @@ def db_handler(post_data: dict[str, str]):
             result = match
             fields_number = len(match)
 
-    return {'template_name': result['template_name']}
+    return Response(data=result['template_name'], status=http.HTTPStatus.OK)
