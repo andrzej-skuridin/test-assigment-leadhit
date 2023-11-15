@@ -60,7 +60,7 @@ def db_handler(post_data: dict[str, str]):
     :param post_data:
     :return:
     """
-    db_templates = TinyDB('core\db_templates.json')
+    db_templates = TinyDB('db_templates.json')
     new_data = data_transformer(data=post_data)
     matches = db_templates.search(
         Query().fragment(new_data)
@@ -75,11 +75,8 @@ def db_handler(post_data: dict[str, str]):
     # считаем, что наименее избыточный и есть оптимальный вариант
     fields_number = inf
     for match in matches:
-        result = match
         if len(match) < fields_number:
             result = match
             fields_number = len(match)
 
-            # print(f'extra_fields: {fields_number}')
-        # print(f'match: {match}')
-    return result['template_name']
+    return {'template_name': result['template_name']}

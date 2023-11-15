@@ -1,8 +1,0 @@
-{"_default": {
-  "0": {"template_name": "Jane II", "contact_email": "email", "my_telephone": "telephone"},
-  "1": {"template_name": "John", "contact_email": "email", "my_telephone": "telephone", "bio": "text"},
-  "2": {"template_name": "Jane", "contact_email": "email", "my_telephone": "telephone", "registration_date": "date"},
-  "3": {"template_name": "Carl", "bio": "text", "registration_date": "date"},
-  "4": {"template_name": "Zoey", "bio": "text", "contact_email": "email"},
-  "5": {"template_name": "John II", "contact_email": "email", "my_telephone": "telephone", "bio": "text", "registration_date": "date"}
-}}
