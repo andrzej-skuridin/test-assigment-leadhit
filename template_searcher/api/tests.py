@@ -13,10 +13,10 @@ class GetSingleFieldTemplateTestCase(APITestCase):
         self.assertEqual(
             first=response.status_code,
             second=status.HTTP_200_OK,
-            msg='HTTP статус не 200. Сервер поднят?')
+            msg='HTTP статус не 200.')
         self.assertEqual(
             first=response.content,
-            second=b'{"template_name": "Only email"}',
+            second=b'"Only email"',
             msg='Не тот шаблон')
 
     def test_get_only_date(self):
@@ -28,10 +28,10 @@ class GetSingleFieldTemplateTestCase(APITestCase):
         self.assertEqual(
             first=response.status_code,
             second=status.HTTP_200_OK,
-            msg='HTTP статус не 200. Сервер поднят?')
+            msg='HTTP статус не 200.')
         self.assertEqual(
             first=response.content,
-            second=b'{"template_name": "Only date"}',
+            second=b'"Only date"',
             msg='Не тот шаблон')
 
     def test_get_only_text(self):
@@ -43,10 +43,10 @@ class GetSingleFieldTemplateTestCase(APITestCase):
         self.assertEqual(
             first=response.status_code,
             second=status.HTTP_200_OK,
-            msg='HTTP статус не 200. Сервер поднят?')
+            msg='HTTP статус не 200.')
         self.assertEqual(
             first=response.content,
-            second=b'{"template_name": "Only text"}',
+            second=b'"Only text"',
             msg='Не тот шаблон')
 
     def test_get_only_telephone(self):
@@ -58,10 +58,10 @@ class GetSingleFieldTemplateTestCase(APITestCase):
         self.assertEqual(
             first=response.status_code,
             second=status.HTTP_200_OK,
-            msg='HTTP статус не 200. Сервер поднят?')
+            msg='HTTP статус не 200.')
         self.assertEqual(
             first=response.content,
-            second=b'{"template_name": "Only telephone"}',
+            second=b'"Only telephone"',
             msg='Не тот шаблон')
 
 
@@ -75,11 +75,11 @@ class IncorrectFormatTestCase(APITestCase):
         )
         self.assertEqual(
             first=response.status_code,
-            second=status.HTTP_200_OK,
-            msg='HTTP статус не 200. Сервер поднят?')
+            second=status.HTTP_404_NOT_FOUND,
+            msg='HTTP статус не 404.')
         self.assertEqual(
             first=response.content,
-            second=b'{"contact_email": "not email format"}',
+            second=b'{"contact_email":"not email format"}',
             msg='Валидация не сработала.')
 
     def test_incorrect_date(self):
@@ -90,11 +90,11 @@ class IncorrectFormatTestCase(APITestCase):
         )
         self.assertEqual(
             first=response.status_code,
-            second=status.HTTP_200_OK,
-            msg='HTTP статус не 200. Сервер поднят?')
+            second=status.HTTP_404_NOT_FOUND,
+            msg='HTTP статус не 404.')
         self.assertEqual(
             first=response.content,
-            second=b'{"registration_date": "not date format"}',
+            second=b'{"registration_date":"not date format"}',
             msg='Валидация не сработала.')
 
     def test_incorrect_telephone(self):
@@ -105,9 +105,9 @@ class IncorrectFormatTestCase(APITestCase):
         )
         self.assertEqual(
             first=response.status_code,
-            second=status.HTTP_200_OK,
-            msg='HTTP статус не 200. Сервер поднят?')
+            second=status.HTTP_404_NOT_FOUND,
+            msg='HTTP статус не 404.')
         self.assertEqual(
             first=response.content,
-            second=b'{"telephone_number": "not telephone format"}',
+            second=b'{"telephone_number":"not telephone format"}',
             msg='Валидация не сработала.')

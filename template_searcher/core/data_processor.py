@@ -5,14 +5,6 @@ from math import inf
 from rest_framework.response import Response
 from tinydb import TinyDB, Query
 
-# data1 = {
-#     # 'name': 'Bill'
-#     # 'registration_date': '12.12.2012'
-#     # 'contact_email': 'user1@user.ru',
-#     # 'my_telephone': '+79992221100',
-#     'bio': 'I am Batman'
-# }
-
 
 def validator(expression: str) -> str:
     """

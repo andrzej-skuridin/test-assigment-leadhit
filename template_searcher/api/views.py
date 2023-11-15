@@ -1,5 +1,9 @@
+import http
+
+from django.http import HttpResponse
+
+from rest_framework.response import Response
 from rest_framework.views import APIView
-from django.http import JsonResponse, HttpResponse
 
 from core.data_processor import db_handler
 
@@ -20,5 +24,7 @@ class GetFormAPIview(APIView):
 
     def post(self, request, **kwargs):
         data = self.request.data
+        if not data:
+            return Response(data=data, status=http.HTTPStatus.NOT_FOUND)
         found_template = db_handler(data)
         return found_template
