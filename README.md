@@ -7,6 +7,9 @@
 ### Техническое задание:
 https://docs.google.com/document/d/1fMFwPBs53xzcrltEFOpEG4GWTaQ-5jvVLrNT6_hmC7I/edit?pli=1
 
+или в корне проекта в формате PDF.
+
+
 ### Установка (Windows OS):
 Клонировать репозиторий, находящийся по адресу:
 
@@ -32,15 +35,15 @@ source venv/scripts/activate
 python -m pip install --upgrade pip
 ```
 
+Перейти в командной строке в \template_searcher:
+```
+cd template_searcher
+```
+
 Установить зависимости из файла requirements.txt:
 
 ```
 pip install -r requirements.txt
-```
-
-Перейти в командной строке в \template_searcher:
-```
-cd template_searcher
 ```
 
 Выполнить миграции:
