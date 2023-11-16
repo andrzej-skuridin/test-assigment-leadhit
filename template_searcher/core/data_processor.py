@@ -14,7 +14,7 @@ def validator(expression: str) -> str:
     :return:
     """
     email_pattern = r'\S+@\S+\.\S+'
-    telephone_pattern = r'^\+7\d{10}$'
+    telephone_pattern = r'^\+7\s*\d{3}\s*\d{3}\s*\d{2}\s*\d{2}$'
     date_pattern1 = r'^\d{4}-\d{2}-\d{2}$'
     date_pattern2 = r'^\d{2}\.\d{2}\.\d{4}$'
 
