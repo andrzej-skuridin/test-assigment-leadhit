@@ -76,7 +76,7 @@ class IncorrectFormatTestCase(APITestCase):
         self.assertEqual(
             first=response.status_code,
             second=status.HTTP_404_NOT_FOUND,
-            msg='HTTP статус не 404.')
+            msg='При некорректном вводе HTTP статус не 404.')
         self.assertEqual(
             first=response.content,
             second=b'{"contact_email":"not email format"}',
@@ -91,7 +91,7 @@ class IncorrectFormatTestCase(APITestCase):
         self.assertEqual(
             first=response.status_code,
             second=status.HTTP_404_NOT_FOUND,
-            msg='HTTP статус не 404.')
+            msg='При некорректном вводе HTTP статус не 404.')
         self.assertEqual(
             first=response.content,
             second=b'{"registration_date":"not date format"}',
@@ -106,7 +106,7 @@ class IncorrectFormatTestCase(APITestCase):
         self.assertEqual(
             first=response.status_code,
             second=status.HTTP_404_NOT_FOUND,
-            msg='HTTP статус не 404.')
+            msg='При некорректном вводе HTTP статус не 404.')
         self.assertEqual(
             first=response.content,
             second=b'{"telephone_number":"not telephone format"}',
