@@ -18,13 +18,13 @@ def validator(expression: str) -> str:
     date_pattern1 = r'^\d{4}-\d{2}-\d{2}$'
     date_pattern2 = r'^\d{2}\.\d{2}\.\d{4}$'
 
-    if re.search(email_pattern, expression):
-        return 'email'
-    elif re.search(telephone_pattern, expression):
-        return 'telephone'
-    elif (re.search(date_pattern1, expression)
+    if (re.search(date_pattern1, expression)
           or re.search(date_pattern2, expression)):
         return 'date'
+    elif re.search(telephone_pattern, expression):
+        return 'telephone'
+    elif re.search(email_pattern, expression):
+        return 'email'
     else:
         return 'text'
 
