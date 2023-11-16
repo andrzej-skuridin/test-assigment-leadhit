@@ -13,10 +13,6 @@ https://docs.google.com/document/d/1fMFwPBs53xzcrltEFOpEG4GWTaQ-5jvVLrNT6_hmC7I/
 ```
 https://github.com/andrzej-skuridin/test-assignment-leadhit.git
 ```
-Перейти в командной строке в \template_searcher:
-```
-cd template_searcher
-```
 
 Создать виртуальное окружение:
 
@@ -40,6 +36,11 @@ python -m pip install --upgrade pip
 
 ```
 pip install -r requirements.txt
+```
+
+Перейти в командной строке в \template_searcher:
+```
+cd template_searcher
 ```
 
 Выполнить миграции:
