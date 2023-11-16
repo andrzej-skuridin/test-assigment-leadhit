@@ -50,18 +50,20 @@ def data_transformer(data: dict[str, str]) -> dict[str, str]:
 
 def db_handler(post_data: dict[str, str]):
     """
-    Принимает обработанную информацию из POST-запроса
+    Принимает информацию из POST-запроса
     и ищет совпадения с ней в БД.
     :param post_data:
     :return:
     """
     db_templates = TinyDB('db_templates.json')
-    new_data = data_transformer(data=post_data)
+    modified_data = data_transformer(data=post_data)
+
     matches = db_templates.search(
-        Query().fragment(new_data)
+        Query().fragment(modified_data)
     )
+
     if len(matches) == 0:
-        return Response(data=post_data, status=http.HTTPStatus.NOT_FOUND)
+        return Response(data=modified_data, status=http.HTTPStatus.NOT_FOUND)
 
     # здесь нужно среди всех результатов выбрать тот,
     # в котором меньше всего полей,
